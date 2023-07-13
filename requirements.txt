@@ -25,3 +25,4 @@ openai
 unstructured
 google-api-python-client
 tabulate
+zhipuai

@@ -129,6 +129,7 @@ class ModelType(Enum):
     YuanAI = 6
     Minimax = 7
     ChuanhuAgent = 8
+    ZhipuAI = 9
 
     @classmethod
     def get_type(cls, model_name: str):
@@ -152,6 +153,8 @@ class ModelType(Enum):
             model_type = ModelType.Minimax
         elif "川虎助理" in model_name_lower:
             model_type = ModelType.ChuanhuAgent
+        elif "zhipuai" in model_name_lower:
+            model_type = ModelType.ZhipuAI
         else:
             model_type = ModelType.Unknown
         return model_type

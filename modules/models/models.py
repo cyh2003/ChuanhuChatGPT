@@ -607,6 +607,15 @@ def get_model(
         elif model_type == ModelType.ChuanhuAgent:
             from .ChuanhuAgent import ChuanhuAgent_Client
             model = ChuanhuAgent_Client(model_name, access_key, user_name=user_name)
+        elif model_type == ModelType.ZhipuAI:
+            from .ZhipuAI import ZhipuAI_Client
+            model = ZhipuAI_Client(
+                model_name=model_name.replace("zhipuai-", "chatglm_"),
+                api_key=access_key,
+                temperature=temperature,
+                top_p=top_p,
+                user_name=user_name,
+            )
         elif model_type == ModelType.Unknown:
             raise ValueError(f"未知模型: {model_name}")
         logging.info(msg)
